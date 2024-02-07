@@ -1,5 +1,5 @@
 ---
-layout: hotosm-layout-overview-tool
+layout: default
 ---
 
 # hotosm-collate
