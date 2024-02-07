@@ -1,7 +1,6 @@
 ---
-layout: hotosm-layout-overview-tool
-title: generated from index'
-permalink: /index.html
+title: generated from index
+layout: documentation
 ---
 
 # hotosm-collate

@@ -1,7 +1,7 @@
 ---
 title: Help | HOTOSM Collate
 author: Jarmo Kivekäs
-layout: default
+layout: documentation
 ---
 
 

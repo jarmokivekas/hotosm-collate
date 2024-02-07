@@ -1,7 +1,7 @@
 ---
 title: About | HOTOSM Collate 
 author: Jarmo Kivekäs
-layout: default
+layout: documentation
 ---
 
 # HOTOSM Collate

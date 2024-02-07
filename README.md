@@ -1,5 +1,5 @@
 ---
-layout: default
+title: git repo reame
 ---
 
 # hotosm-collate
