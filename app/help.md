@@ -6,9 +6,6 @@ layout: hotosm-layout-overview-tool
 ---
 
 
-The intended use of this tool is to help HOTOSM activation managers to keep track of progress in ongoing projects in an activation.
-
-
 
 
 
@@ -47,7 +44,7 @@ Currently uses the Tasking manager default sorting order which is based on the u
 
 Ordering by project ID is very useful for creating tables for Wikis or spreadsheets that are consistent over the time of the activation. Project ID's are a sequential increasing number. This means sorting by project ID will sort the project in order of creation. Over the span of weeks or months during the activation, this order will stay the same which makes it a good default order to use in activation documentation as it will prevent projects moving up and down in the table over time. 
 
-#
+
 
 ## Planned features
 
@@ -75,4 +72,6 @@ These projects can be brought to the attention of validation teams by the activa
 ### Autocompletion
 
 Autocompletion of dropdown list of accepted values if filter fields
+
+
 
