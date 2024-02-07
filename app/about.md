@@ -1,4 +1,10 @@
-# HOTOSIM Collate
+---
+title: About | HOTOSM Collate 
+author: Jarmo Kivekäs
+layout: hotosm-layout-overview-tool
+---
+
+# HOTOSM Collate
 
 
 HOTOSM Collate (this application) is primarily intended to help HOTOSM activation managers to keep track of the progress of Tasking Manager mapping projects during an activation by gathering their status information if a table format. It also has uses for project gardening: finding old inactive or completed projects that are still hanging around without having been archived.
