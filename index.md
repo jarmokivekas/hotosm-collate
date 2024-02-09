@@ -3,6 +3,9 @@ title: generated from index
 layout: documentation
 ---
 
+
+<br />
+
 # Collate HOTOSM Tasking manager projects
 
 
@@ -13,7 +16,8 @@ Welcome to the new and slightly imporved instance of the HOT Activation Overview
 <input type="submit" value="Open the Application" class="bg-red" />
 </form>
 
-
+<br />
+<br />
 
 # Do you have broke links?
 
