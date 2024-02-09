@@ -69,11 +69,21 @@ h1{
     margin: 0 auto;
 }
 
+article p {
+    line-height: 1.35;
+
+    font-size: 1.125rem;
+    margin-bottom: 14px;
+    color: #4c4f56;
+}
+
+
 #footer {
-    background-color: #2c3038;
+    /* background-color: #2c3038; */
+    background-color: #ecebed;
     padding: 5rem;
     clear: both;
-    color: #fff;
+    color: #444;
     overflow: auto;
 }
 
