@@ -5,11 +5,18 @@ title: git repo reame
 # hotosm-collate
 
 
-<form action="./app">
-<input type="submit" value="Open the Application" class="bg-red" />
-</form>
+
+hotosm-collate is single-page javascript app for collating data from hotosm tasking manager. 
+
+
+**[Go to the app](jarmokivekas.github.io/hotosm-collate/app)**
 
 
 
-A single-page javascript app for collating data from hotosm tasking manager. 
- 
+---
+
+This is a new version of the applications that was originally hosted in the jarmokivekas/hotosm-activation-gis-recources repo. This software 
+is now maintained in this repo, and the previous version will eventually be taken down.
+
+
+
