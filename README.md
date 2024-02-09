@@ -9,7 +9,7 @@ title: git repo reame
 hotosm-collate is single-page javascript app for collating data from hotosm tasking manager. 
 
 
-**[Go to the app](jarmokivekas.github.io/hotosm-collate/app)**
+**[Go to the app](https://jarmokivekas.github.io/hotosm-collate/app)**
 
 
 
