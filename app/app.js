@@ -27,7 +27,7 @@ async function get_api_data_v2(
     var url = new URL(instance + v2_apiroot + "/" + api_endpoint + "/");
 
     url.search = new URLSearchParams(parameters); 
-    console.log(url.toString()); //
+    console.log("fetching from API: " + url.toString()); //
 
     const response = await fetch(url.toString(), {
       method: "GET",
@@ -42,8 +42,11 @@ async function get_api_data_v2(
 
 
 
-function formatDatetime(date) {
 
+// prettyfy the date time data from the tasking manager api to something slightly more presentable
+// in the data table
+function formatDatetime(date) {
+    
     return date.getUTCFullYear() + "-" +
         ("0" + (date.getUTCMonth()+1)).slice(-2) + "-" +
         ("0" + date.getUTCDate()).slice(-2) + " " +
@@ -52,7 +55,7 @@ function formatDatetime(date) {
         
 }
 
-
+// creates the main results table if and populates it with fetched from the TM search API
 function tableCreate(search_results, page) {
 
     // list of the field names that will be included in the data table
@@ -83,6 +86,7 @@ function tableCreate(search_results, page) {
         dataframe_div.appendChild(tbl);
     }
     
+
     tbl = document.getElementById("dataframe-table");
     for (result of search_results) {
         const tr = tbl.insertRow();
@@ -123,7 +127,10 @@ function tableCreate(search_results, page) {
     }
     
 }
-  
+
+// copy the GET parameters from the URL and populate the search & filtering form inputs
+// this makes it easier to edit your search queries, as otherwise the form is emptied every time
+// the page is refreshed.
 function update_search_parameters(){
 
     const urlParams = new URLSearchParams(window.location.search); 
@@ -136,14 +143,12 @@ function update_search_parameters(){
         document.getElementById(form_input).value = urlParams.get(form_input);
     }
 
-    return
+    return urlParams
 }
 
 
 
-update_search_parameters();
 
-const urlParams = new URLSearchParams(window.location.search); 
 
 function get_search_results(page) {
 
@@ -161,6 +166,8 @@ function get_search_results(page) {
         page: page,
     }
 
+
+    // 
     get_api_data_v2("projects", api_call_params).then( (single_page_data) => {
             
         console.log(single_page_data.results);
@@ -169,6 +176,7 @@ function get_search_results(page) {
         console.log(search_results);
         tableCreate(search_results, page);        
 
+        // recursive call to this function if there are still more pages
         if (single_page_data.pagination.hasNext == true) {
             console.log("found one more page")
             page = page + 1;
@@ -184,7 +192,7 @@ function get_search_results(page) {
 
 function preset_null_filters() {
     // set default values to any filter that need to have one.
-
+    const urlParams = new URLSearchParams(window.location.search); 
     const select_ids = ["projectStatuses","orderBy","orderByType"]
 
     for (select_id of select_ids) {
@@ -204,7 +212,59 @@ function preset_null_filters() {
 }
 
 
-preset_null_filters()
-get_search_results(page=1)  
+// get the list on names for campaigns, organisations, interest and countries
+// and popluate them to the filter form input datalists to enable users
+// to autocomplete valid input values for those form inputs
+function populate_datalist(datalist_id, api_endpoint) {
+
+
+    get_api_data_v2(api_endpoint).then( (response) => {
+            
+        console.log(response)
+        let option_values = []
+        switch (api_endpoint) {
+            case "campaigns":
+                option_values = response.campaigns.map(a => a.name);
+                break;
+            case "organisations":
+                option_values = response.organisations.map(a => a.name);
+                break;
+            case "interests":
+                option_values = response.interests.map(a => a.name);
+                break;
+            case "countries":
+                option_values = response.tags
+                break;
+            default:
+                return;
+        }
+
+        datalist = document.getElementById(datalist_id) 
+
+        for (option_value of option_values) {
+            let option = document.createElement('option')
+            option.value = option_value
+            datalist.appendChild(option)
+        }
+
+    });
+
+}
+
+
+
+
+function main() {
+    populate_datalist("campaignList", "campaigns")
+    populate_datalist("countryList", "countries")
+    populate_datalist("organisationNameList", "organisations")
+    populate_datalist("interestList", "interests")
+
+    urlParams = update_search_parameters();
+    preset_null_filters()
+    get_search_results(page=1)  
+}
+
+main()
 
 // let table = new DataTable('#dataframe-table');
