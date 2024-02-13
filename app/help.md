@@ -53,14 +53,13 @@ By default the search results are listed sorted by project ID.
 
 - **difficulty** The search results are grouped based on the difficulty level of the mapping as determined by the projects' creator. The difficulties are "EASY", "MODERATE", and "DIFFICULT"
 
+- **priority** is low, medium, high, or urgent. The priotiry of a project as determined by the project manager in the Tasking Manager stiing for the project 
 
-- **priority** 
+- **status** allows you to filter for projects that are published, archived or drafts. Published project are publicly available for mapper to contribute to. Archived projects are typically projects that have been completed and are no longer worked on. Drafts are planned projects that are not yet made available to the public to freely start mapping on.
 
-- **status**
+- **last updated** is the last time a user has made a change in the project, such as marking a task mapped, validated a task, etc.
 
-- **last updated**
-
-- **due date**
+- **due date** is an optional setiing a project manager can set for a project to indicates when the project is planned to be completed.
 
 
 # Planned features
