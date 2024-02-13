@@ -61,35 +61,11 @@ function tableCreate(search_results, page) {
     // list of the field names that will be included in the data table
     columns = ["projectId", "name", "percentMapped", "percentValidated", "priority", "difficulty", "status", "organisationName", "lastUpdated", "dueDate"];
 
-    if (page == 1) {
-
-        console.log("creating table"l);
-        const dataframe_div = document.getElementById("dataframe-container"),
-        
-        tbl = document.createElement('table');
-        tbl.id = "dataframe-table";
-        tbl.class = "display";
 
 
-        // create the header row
-        const tr = tbl.insertRow();
-        for (column of columns) {
-
-            th = document.createElement('th');
-            th.innerHTML = column;
-            tr.appendChild(th);
-
-            // const td = tr.insertCell();
-            // td.appendChild(document.createTextNode(column));
-            
-        }
-        dataframe_div.appendChild(tbl);
-    }
-    
-
-    tbl = document.getElementById("dataframe-table");
+    table_body = document.getElementById("dataframe-body");
     for (result of search_results) {
-        const tr = tbl.insertRow();
+        const tr = table_body.insertRow();
         for (column of columns) {
             const td = tr.insertCell();
             field_value = result[column]
