@@ -1,5 +1,5 @@
 ---
-title: generated from index
+title: HOTOSM Collate
 layout: documentation
 ---
 
@@ -33,3 +33,6 @@ https://jarmokivekas.github.io/hotosm-collate/app/
 
 
 To fix your links, just exchange that part of the url, and keep the search parameters as they are. The search parameters are everythin after the first `?` in the url, such as `?textSearch=...`. Or you can just make the same search in this new instance, and copy the url from you browser. 
+
+
+

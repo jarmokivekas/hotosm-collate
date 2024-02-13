@@ -8,41 +8,60 @@ layout: documentation
 
 
 
-## Search Criteria
+# Search Criteria
 
 
-
-**Note** this software is an experimental prototype. Many of the filter values require exact spelling to match search results. Ideally there would be a auto-completion feature for accepted values. However it's yet to be implemented. Instead you can press the `(?)` next to each filter field to get the JSON API listing of the accpted values. It's inconvenient, but hopefully a little helpful.
 
 Filter fields may be left empty, in which case they are simply ignored. Please use at least one field: if all the fields are empty, the search will return every project in the tasking manager. 
 
-- **Text search** is a free-form keyword search for projects. Useful for example in large activations 
+- **Text search** is a free-form keyword search for projects. Useful for example in large activations where there might be projects by multiple groups that are not all tagged as part of the same campaign, for example. This field searches in the tasking manager project title and description.
 
-- **Campaign** has to be a specific campaign in the tasking manager. For now the list of valid values are listed here https://tasking-manager-tm4-production-api.hotosm.org/api/v2/campaigns/
+The following four field require specific inputs in that match tags used in the Tasking Manager. Start typing in the text box to get a drop-down list of possible inputs that match what you typed.
 
-- **Country** in which the project area is situated in. Exact spelling of accepted values spelling here https://tasking-manager-tm4-production-api.hotosm.org/api/v2/countries/
+- **Campaign** has to be a specific campaign tag in the tasking manager. For example "Cyclone Lekima" or "The India Flood 2023".
 
-- **Organisation name** Name of the organisation runnin or requesting the project, e.g "British Red Cross" or "Missing Maps". Accepted values listed in  https://tasking-manager-tm4-production-api.hotosm.org/api/v2/organisations/
+- **Country** in which the project area is situated in, for example "Peru", "Canada", or "Papua New Guinea"
+
+- **Organisation name** Name of the organisation running or requesting the project, e.g "British Red Cross" or "Missing Maps".
+
+- **Interests** one of the mapper interests, e.g. "disaster response", "public health", or "water & sanitation"
 
 
-- **Interests** one of the mapper interests, e.g. "disaster response" or "public health". Accepted valus listed in  https://tasking-manager-tm4-production-api.hotosm.org/api/v2/interests/
+## How are multiple fiters applied?
 
+You need to use at least one of the five filters described in the section above for you search criteria. You may also use all or only some of them. When using multiple filters they are combine with a logical AND operation, so all of the applied filters must match for a project to show up in the search result.
+
+For example if you apply the filters:
+
+- country: Mozambique
+- organisation name: Missing Maps
+
+The search will return all the Tasking Manager projects run by Missing Maps in Mozambique, but no projects in other countries, and no projects in Mozambique that are run by another organisation.
 
 ## Saving filters for future use
 
-Search filters are saved to the URL of the page when clicking the "Apply Filters" button. You can save or share a search result by copying the page's URL from you browser address bar. Accessing the link later will run the search again with the same filters applies.
+The search filters are saved to the URL of the page when clicking the "Apply Filters" button. You can save or share a search result by copying the page's URL from you browser address bar. Accessing the link later will run the search again with the same filters applied.
 
 
 
-## Sort orders
 
-Currently uses the Tasking manager default sorting order which is based on the urgency
+# Sorting and ordering the results
 
+By default the search results are listed sorted by project ID.
 
-### By project ID
+- **project ID (chronological)** Ordering by project ID is very useful for creating tables for Wikis or spreadsheets that are consistent over the time of the activation. Project ID's are a sequential increasing number like "#5819", "#7815". Sorting by project ID will sort the project in order of creation. Over the span of weeks or months during an activation, this order will stay the same even as projects are created and completed. Sorting by project ID is a good default order to use in activation documentation as it will prevent projects moving up and down in the table over time. 
 
-Ordering by project ID is very useful for creating tables for Wikis or spreadsheets that are consistent over the time of the activation. Project ID's are a sequential increasing number. This means sorting by project ID will sort the project in order of creation. Over the span of weeks or months during the activation, this order will stay the same which makes it a good default order to use in activation documentation as it will prevent projects moving up and down in the table over time. 
+- **difficulty** The search results are grouped based on the difficulty level of the mapping as determined by the projects' creator. The difficulties are "EASY", "MODERATE", and "DIFFICULT"
 
+TODO: complete this section
+
+- **priority** 
+
+- **status**
+
+- **last updated**
+
+- **due date**
 
 
 ## Planned features
