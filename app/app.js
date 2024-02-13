@@ -63,7 +63,7 @@ function tableCreate(search_results, page) {
 
     if (page == 1) {
 
-        console.log("creating table");
+        console.log("creating table"l);
         const dataframe_div = document.getElementById("dataframe-container"),
         
         tbl = document.createElement('table');

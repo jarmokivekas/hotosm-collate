@@ -53,7 +53,6 @@ By default the search results are listed sorted by project ID.
 
 - **difficulty** The search results are grouped based on the difficulty level of the mapping as determined by the projects' creator. The difficulties are "EASY", "MODERATE", and "DIFFICULT"
 
-TODO: complete this section
 
 - **priority** 
 
@@ -64,10 +63,11 @@ TODO: complete this section
 - **due date**
 
 
-## Planned features
+# Planned features
 
 
-### Pending Archival filter 
+
+## Pending Archival filter 
 
 Projects matching the "Pending archival" filter are:
 
@@ -77,7 +77,7 @@ Projects matching the "Pending archival" filter are:
 
 These projects need attention from activation management to be brought all the way to completion, and eventually set to the `ARCHIVED` status. 
 
-### Pending Validation filter
+## Pending Validation filter
 
 Project mathing the "Pending Validation" filter are:
 
@@ -86,10 +86,4 @@ Project mathing the "Pending Validation" filter are:
 - have the `PUBLISHED` status
 
 These projects can be brought to the attention of validation teams by the activation management 
-
-### Autocompletion
-
-Autocompletion of dropdown list of accepted values if filter fields
-
-
 

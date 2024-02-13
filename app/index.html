@@ -6,120 +6,138 @@
 <html lang="en">
 
 <head>
-
+  
   <meta charset="UTF-8" />
-
+  
   <title>HOTOSM Collate</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow+Condensed:400,500,600,700%7CArchivo:400,500,600,700%7Csans-serif" media="all">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
   <link rel="stylesheet" type="text/css" href="style.css" />
-
-
+  
+  
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
-
+  
   <link rel="icon" href="favicon.png">
-
+  
 </head>
 
 <body>
-
-    <div id="topbar" class="wireframe red barlow-condensed">Mapping our world together</div>
-    <div id="banner">
-      <h1>Activation Overview</h1>
-      <a href="./">COLLATE PROJECTS</a>
-      <a href="./help">HELP</a>
-      <a href="./about">ABOUT</a>
-    </div>
-
-
-<div id="filter-card">
-  <form action="#">
-
-        <label for="textSearch">text search </label>
-        <br>
-        <input type="text" id="textSearch" name="textSearch" />
-        <br><br>
-
-        <label for="campaign">campaign | <a title="click to open list of accepted values" href="https://tasking-manager-tm4-production-api.hotosm.org/api/v2/campaigns/">(?)</a></label>
-        <br>
-        <input type="text" id="campaign" name="campaign" list="campaignList" />
-        <datalist id="campaignList">
-          <!-- this datalist is populated from the tasking manager API -->
-        </datalist>
-        <br><br>
-
-        <label for="country">country | <a   title="click to open list of accepted values" href="https://tasking-manager-tm4-production-api.hotosm.org/api/v2/countries/">(?)</a> </label>
-        <br>
-        <input type="text" id="country" name="country" list="countryList">
-        <datalist id="countryList">
-          <!-- this datalist is populated from the tasking manager API -->
-        </datalist>
-        <br><br>
-
-        <label for="organisationName">organisation name | <a title="click to open list of accepted values" href="https://tasking-manager-tm4-production-api.hotosm.org/api/v2/organisations/">(?)</a></label>
-        <br>
-        <input type="text" id="organisationName" name="organisationName" list="organisationNameList" />
-        <datalist id="organisationNameList">
-          <!-- this datalist is populated from the tasking manager API -->
-        </datalist>
-        <br><br>
-
-        <label for="interest">interest | <a title="click to open list of accepted values" href="https://tasking-manager-tm4-production-api.hotosm.org/api/v2/interests/">(?)</a></label>
-        <br>
-        <input type="text" id="interest" name="interest"  list="interestList" />
-        <datalist id="interestList">
-          <!-- this datalist is populated from the tasking manager API -->
-        </datalist>
-        <br><br>
-
-        <hr><br>
-
-        <label for="orderBy">order by</a></label><br>
-        <select name="orderBy" id="orderBy">
-          <option value="id" selected="selected">project ID (chronological)</option>
-          <option value="difficulty">difficulty</option>
-          <option value="priority">priority</option>
-          <option value="status">status</option>
-          <option value="last_updated">last updated</option>
-          <option value="due_date">due date</option>
-        </select>
-
-        <br><br>
-
-        <label for="orderByType">order type</a></label><br>
-        <select name="orderByType" id="orderByType" value="ASC">
-          <option value="ASC">Ascending</option>
-          <option value="DESC">Descending</option>
-        </select>
-
-        <br><br>
-
-        <label for="projectStatuses">Project status </label><br>
-        <select name="projectStatuses" id="projectStatuses">
-          <option value="ARCHIVED,PUBLISHED,DRAFT" selected="selected">Any status</option>
-          <option value="ARCHIVED">Archived</option>
-          <option value="PUBLISHED">Published</option>
-          <option value="DRAFT">Drafts</option>
-
-        </select>
-
-        <br><br>
-
-        <input type="submit" value="Apply filter" class="bg-red">
-
-
-  </form>
-
-</div>
-
-  <div id="dataframe-container">
+  
+  <div id="topbar" class="wireframe red barlow-condensed">Mapping our world together</div>
+  <div id="banner">
+    <h1>Activation Overview</h1>
+    <a href="./">COLLATE PROJECTS</a>
+    <a href="./help">HELP</a>
+    <a href="./about">ABOUT</a>
   </div>
-
+  
+  
+  <div id="filter-card">
+    <form action="#">
+      
+      <label for="textSearch">text search </label>
+      <br>
+      <input type="text" id="textSearch" name="textSearch" />
+      <br><br>
+      
+      <label for="campaign">campaign</label>
+      <br>
+      <input type="text" id="campaign" name="campaign" list="campaignList" title="Filter by tasking manager campaign tag the projects belong to, e.g. 'Cyclone Lekima' or 'The India Flood 2023'.s"/>
+      <datalist id="campaignList">
+        <!-- this datalist is populated from the tasking manager API -->
+      </datalist>
+      <br><br>
+      
+      <label for="country">country</label>
+      <br>
+      <input type="text" id="country" name="country" list="countryList" title="Filter to only show projects in a specific country, e.g. 'Peru' or 'Canada'.">
+      <datalist id="countryList">
+        <!-- this datalist is populated from the tasking manager API -->
+      </datalist>
+      <br><br>
+      
+      <label for="organisationName">organisation name</label>
+      <br>
+      <input type="text" id="organisationName" name="organisationName" list="organisationNameList" title="Filter by name of the organisation running or requesting the project, e.g. 'British Red Cross' or 'Missing Maps'." />
+      <datalist id="organisationNameList">
+        <!-- this datalist is populated from the tasking manager API -->
+      </datalist>
+      <br><br>
+      
+      <label for="interest">interest</label>
+      <br>
+      <input type="text" id="interest" name="interest"  list="interestList" title="Filter by mapper interest category, e.g. 'disaster response' or 'public health'."/>
+      <datalist id="interestList">
+        <!-- this datalist is populated from the tasking manager API -->
+      </datalist>
+      <br><br>
+      
+      <hr><br>
+      
+      <label for="orderBy">order by</a></label><br>
+      <select name="orderBy" id="orderBy" title="Select in what order projects appear in the search results">
+        <option value="id" selected="selected">project ID (chronological)</option>
+        <option value="difficulty">difficulty</option>
+        <option value="priority">priority</option>
+        <option value="status">status</option>
+        <option value="last_updated">last updated</option>
+        <option value="due_date">due date</option>
+      </select>
+      
+      <br><br>
+      
+      <label for="orderByType">order type</a></label><br>
+      <select name="orderByType" id="orderByType" value="ASC" title="Reverse the sort order by switching this value.">
+        <option value="ASC">Ascending</option>
+        <option value="DESC">Descending</option>
+      </select>
+      
+      <br><br>
+      
+      <label for="projectStatuses">Project status</label><br>
+      <select name="projectStatuses" id="projectStatuses" title="The search results will be limited to projects with the given status.">
+        <option value="ARCHIVED,PUBLISHED,DRAFT" selected="selected">Any status</option>
+        <option value="ARCHIVED">Archived</option>
+        <option value="PUBLISHED">Published</option>
+        <option value="DRAFT">Drafts</option>
+        
+      </select>
+      
+      <br><br>
+      
+      <input type="submit" value="Apply filter" class="bg-red">
+      
+      
+    </form>
+    
+  </div>
+  
+  <div id="dataframe-container">
+    
+    
+    <table id="dataframe-table">
+      <thead>
+        <tr>
+          <th>projectId</th>
+          <th>name</th>
+          <th>percentMapped</th>
+          <th>percentValidated</th>
+          <th>priority</th>
+          <th>difficulty</th>
+          <th>status</th>
+          <th>organisationName</th>
+          <th>lastUpdated</th>
+          <th>dueDate</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  
   <div id="footer">
-
+    
     Developed & Maintained by Jarmo Kivekäs | @jarmokivekas 
-
+    
   </div>
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
