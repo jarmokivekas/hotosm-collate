@@ -6,10 +6,7 @@ layout: documentation
 
 
 
-
-
 # Search Criteria
-
 
 
 Filter fields may be left empty, in which case they are simply ignored. Please use at least one field: if all the fields are empty, the search will return every project in the tasking manager. 
@@ -43,8 +40,6 @@ The search will return all the Tasking Manager projects run by Missing Maps in M
 The search filters are saved to the URL of the page when clicking the "Apply Filters" button. You can save or share a search result by copying the page's URL from you browser address bar. Accessing the link later will run the search again with the same filters applied.
 
 
-
-
 # Sorting and ordering the results
 
 By default the search results are listed sorted by project ID.
@@ -53,36 +48,12 @@ By default the search results are listed sorted by project ID.
 
 - **difficulty** The search results are grouped based on the difficulty level of the mapping as determined by the projects' creator. The difficulties are "EASY", "MODERATE", and "DIFFICULT"
 
-- **priority** is low, medium, high, or urgent. The priotiry of a project as determined by the project manager in the Tasking Manager stiing for the project 
+- **priority** is "LOW", "MEDIUM", "HIGH", or "URGENT". The priotiry of a project as determined by the project manager in the Tasking Manager stiing for the project 
 
 - **status** allows you to filter for projects that are published, archived or drafts. Published project are publicly available for mapper to contribute to. Archived projects are typically projects that have been completed and are no longer worked on. Drafts are planned projects that are not yet made available to the public to freely start mapping on.
 
 - **last updated** is the last time a user has made a change in the project, such as marking a task mapped, validated a task, etc.
 
-- **due date** is an optional setiing a project manager can set for a project to indicates when the project is planned to be completed.
+- **due date** is an optional setting a project manager can set for a project to indicates when the project is planned to be completed.
 
-
-# Planned features
-
-
-
-## Pending Archival filter 
-
-Projects matching the "Pending archival" filter are:
-
-- Over 99% mapped
-- Over 99% validated
-- Have the `PUBLISHED` status
-
-These projects need attention from activation management to be brought all the way to completion, and eventually set to the `ARCHIVED` status. 
-
-## Pending Validation filter
-
-Project mathing the "Pending Validation" filter are:
-
-- over 99% mapped
-- less than 99% validated
-- have the `PUBLISHED` status
-
-These projects can be brought to the attention of validation teams by the activation management 
 
