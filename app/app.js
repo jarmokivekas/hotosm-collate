@@ -20,7 +20,7 @@ const HOTOSM_TM_INSTANCE_URL  = "https://tasks.hotosm.org"
 async function get_api_data_v2(
     api_endpoint, 
     parameters = {},
-    instance = "https://tasking-manager-tm4-production-api.hotosm.org", 
+    instance = "https://tasking-manager-production-api.hotosm.org", 
     v2_apiroot = "/api/v2",
 ){
 
