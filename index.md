@@ -1,6 +1,6 @@
 ---
 title: HOTOSM Collate
-layout: documentation
+layout: landing
 ---
 
 
@@ -11,10 +11,12 @@ layout: documentation
 
 Welcome to the Collate tool for HOT Tasking Manager.
 
-The purpose of this tool is to help project managers to get a better sense of what's going on in the Tasking Manager projects in their Activations. 
-Click the button below to move to the application itself.
+The purpose of this tool is to help project managers to get a better sense of what's going on in the Tasking Manager projects in their Activations.  Click the button below to move to the application itself.
+
+<br />
 
 <form action="./app">
 <input type="submit" value="Open the Application" class="bg-red" />
 </form>
+<br />
 
