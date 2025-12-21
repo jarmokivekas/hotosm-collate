@@ -1,10 +1,9 @@
 ---
-title: HOTOSM Collate
-layout: landing
+title: "HOTOSM Collate"
+layout: "documentation"
+base: "./"
 ---
 
-
-<br />
 
 # Collate HOTOSM Tasking manager projects
 
@@ -15,7 +14,7 @@ The purpose of this tool is to help project managers to get a better sense of wh
 
 <br />
 
-<form action="./app">
+<form action="app">
 <input type="submit" value="Open the Application" class="bg-red" />
 </form>
 <br />
