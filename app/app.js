@@ -7,9 +7,11 @@
 
 import { orchestrate } from './search.js';
 import { setViewMode } from './view.js';
+import { initializeLeaflet } from './view.js'
 
 function main() {
   orchestrate();
+  initializeLeaflet()
 
   document.getElementById('show-table')
     .addEventListener('click', () => setViewMode('table'));

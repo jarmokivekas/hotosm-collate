@@ -141,7 +141,6 @@ export async function getSearchResults(startPage = 1) {
 
     try {
       const singlePageData = await getApiDataV2("projects", apiCallParams);
-      console.log(singlePageData.results);
 
       const searchResults = singlePageData.results || [];
       tableCreate(searchResults, page);
@@ -149,7 +148,6 @@ export async function getSearchResults(startPage = 1) {
       if (singlePageData.pagination && singlePageData.pagination.hasNext === true) {
         page = page + 1;
         // continue the loop to fetch the next page
-        console.log("found one more page, fetching page", page);
         continue;
       }
       // No more pages - exit loop
