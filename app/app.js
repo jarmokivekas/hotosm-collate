@@ -10,7 +10,6 @@ import { setViewMode } from './view.js';
 
 function main() {
   orchestrate();
-  setViewMode('table');
 
   document.getElementById('show-table')
     .addEventListener('click', () => setViewMode('table'));
