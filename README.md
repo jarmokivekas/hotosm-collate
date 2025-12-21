@@ -41,3 +41,17 @@ Trying to use the application via `file:///` will likely cause issues with the E
 ## API domain
 
 Tasking manager runs a separate dev and production instance of the tasking manager api. http://localhost:3000 is only whitelisted on the dev instance. 
+
+
+## Render static html
+
+Jinja2 templates used for the articles are rendered by the collate-renderer command
+
+```
+cd hotosm-collate
+python3 -m venv --prompt collate venv
+source venv/bin/activate
+pip install -e .
+collate-renderer
+```
+
