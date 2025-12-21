@@ -162,11 +162,11 @@ export async function getSearchResults(startPage = 1) {
 }
 
 /**
- * main
+ * orchestrate
  * Orchestrate initial population of datalists and start the first search.
  * This mirrors the original main() function in behavior and order.
  */
-export async function main() {
+export async function orchestrate() {
   // Parallelize datalist population to speed startup
   await Promise.all([
     populateDatalist("campaignList", "campaigns"),
