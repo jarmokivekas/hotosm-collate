@@ -28,11 +28,6 @@ h1{
     border: 1px solid #ecebed;
 }
 
-#topbar {
-    padding-left: 1.5rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-}
 
 #banner{
     font-family: "Barlow Condensed",sans-serif;
@@ -60,8 +55,31 @@ h1{
     width: auto;
     overflow-x: scroll;
     margin: 0rem;
-    padding: 1.5rem;
 }
+
+
+td, th {
+    padding: 0.5rem;
+    text-align: left;
+}
+
+#dataframe-map {
+
+    height: 100px;
+    width: 100px
+}
+
+/* #dataframe-map.pip {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+
+  width: 30vw;
+  height: 30vh;
+
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  z-index: 10;
+} */
 
 article {
     max-width: 900px;
@@ -112,8 +130,10 @@ input, select {
  
 }
 
-td, th {
-    padding: 0.5rem;
+button {
+    width: 90%;
+    padding: 8px;
+    line-height: 1.15;
 }
 
 .blue-grey, label {
