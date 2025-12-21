@@ -8,7 +8,8 @@
 // app does not have to embed fetch details.
 
 const TM_PRODUCTION_API_URL = 'https://tasking-manager-production-api.hotosm.org';
-const TM_DEV_API_URL = 'https://tasking-manager-staging-api.hotosm.org';
+const TM_STAGING_API_URL = 'https://tasking-manager-staging-api.hotosm.org';
+const TM_DEV_API_URL = 'https://tasking-manager-dev-api.hotosm.org';
 const V2_API_ROOT = '/api/v2';
 
 function getApiBaseUrl() {
@@ -16,7 +17,7 @@ function getApiBaseUrl() {
   console.log(window.location.hostname)
   if (window.location.hostname === "localhost" || window.location.hostname === '127.0.0.1') {
     console.log("choosing dev api");
-    return TM_DEV_API_URL;
+    return TM_STAGING_API_URL;
   } else {
     console.log("choosing production api");
     return TM_PRODUCTION_API_URL;
