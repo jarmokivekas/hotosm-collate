@@ -56,36 +56,43 @@ h1{
 }
 
 #dataframe-container {
-    /* display: block; */
     border: 1px solid #ecebed;
     width: auto;
     overflow-x: scroll;
-    /* float: left; */
     margin: 0rem;
     padding: 1.5rem;
 }
 
-#docs-page-container {
+article {
     max-width: 900px;
     margin: 0 auto;
-}
-
-article p {
-    line-height: 1.35;
-
-    font-size: 1.125rem;
-    margin-bottom: 14px;
+    padding: 1.5rem;
     color: #4c4f56;
+
 }
+
+article img  {
+    width: 80%;
+    margin-left: 10%;
+    border: 1px solid #ecebed
+}
+
+p, li{
+    line-height: 1.35;
+    font-size: 1rem;
+    margin-bottom: 14px;
+}
+
+
 
 
 #footer {
-    /* background-color: #2c3038; */
     background-color: #ecebed;
     padding: 5rem;
     clear: both;
-    color: #444;
+    color: #888;
     overflow: auto;
+    text-align: center;
 }
 
 hr {

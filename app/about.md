@@ -4,15 +4,6 @@ author: Jarmo Kivekäs
 layout: documentation
 ---
 
-# HOTOSM Collate
-
-
-
-<form action="./app">
-<input type="submit" value="Open the Application" class="bg-red" />
-</form>
-
-
 
 # What is HOTOSM Collate?
 
@@ -38,3 +29,6 @@ The intended use of this tool is to help HOTOSM activation managers to keep trac
 # Maintainers
 
 
+So far this is a solo developer project and I (Jarmo) am it's only maintainer. It's just a side project I work on every now and then when I feel like it (or something breaks :))
+
+Issues or pull requests on github are welcome, and if the HOTOSM tech team at some point wants to take this project under their own care, that is also possible. In fact it would probably make sense considering how tied this is to the tasking manager and HOTOSM activites in general. The software is licensed under the BSD 2-Clause License which allows redistribution of modified copies.
