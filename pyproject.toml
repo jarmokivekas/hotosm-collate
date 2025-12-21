@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hotosm-collate-renderer"
+version = "0.1.0"
+description = "Render markdown files in /app to HTML using Jinja2 templates in /_layouts"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+  "Jinja2>=3.0",
+  "PyYAML>=6.0",
+  "Markdown>=3.0",
+]
+
+[tool.setuptools]
+packages = ["collate_renderer"]
+
+[project.scripts]
+collate-renderer = "collate_renderer.cli:main"
