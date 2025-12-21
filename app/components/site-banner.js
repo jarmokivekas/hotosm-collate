@@ -5,9 +5,7 @@ class SiteBanner extends HTMLElement {
         const base = this.getAttribute('base') || '.';
 
         this.innerHTML = `
-        <div id="topbar" class="wireframe red barlow-condensed">
-            Mapping our world together
-        </div>
+
 
         <div id="banner">
             <h1>Activation Overview</h1>
