@@ -8,7 +8,6 @@
 // functions can read parameters easily.
 
 import { getApiDataV2 } from "./api.js";
-import { addTableRows } from "./table.js";
 
 
 /**

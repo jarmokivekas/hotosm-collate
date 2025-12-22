@@ -41,7 +41,7 @@ export function addTableRows(searchResults, page) {
     console.warn("addTableRows: #dataframe-body not found in DOM");
     return;
   }
-
+  console.log(HOTOSM_COLORMAP.length);
   for (const result of searchResults) {
     const tr = tableBody.insertRow();
     for (const column of columns) {
@@ -53,6 +53,7 @@ export function addTableRows(searchResults, page) {
         case "percentMapped":
         case "percentValidated":
           // Use the percent value as an index into HOTOSM_COLORMAP (as previously)
+          fieldValue = Math.round(fieldValue) // make sure it's an integer in case the api ever starts using floats
           if (typeof fieldValue === "number" && HOTOSM_COLORMAP[fieldValue]) {
             td.style["background-color"] = HOTOSM_COLORMAP[fieldValue];
           }

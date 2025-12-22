@@ -4,19 +4,22 @@
 /**
  * HOTOSM_COLORMAP:
  * Array mapping integer percentage values to color strings.
- * Kept as an array to preserve the original coloring logic.
+ * The array has 101 entries, one for each integer in range [0..100]
  */
 export const HOTOSM_COLORMAP = [
   "#d73f3f","#d73f3f","#d73f3f","#d73f3f","#d73f3f","#da493b","#da493b","#da493b","#da493b","#da493b",
   "#de5438","#de5438","#de5438","#de5438","#de5438","#e25f34","#e25f34","#e25f34","#e25f34","#e25f34",
-  "#e86a30","#e86a30","#e86a30","#e86a30","#e86a30","#ee7530","#ee7530","#ee7530","#ee7530","#ee7530",
-  "#f3852f","#f3852f","#f3852f","#f3852f","#f3852f","#f7922f","#f7922f","#f7922f","#f7922f","#f7922f",
-  "#fb9f31","#fb9f31","#fb9f31","#fb9f31","#fb9f31","#ffb93a","#ffb93a","#ffb93a","#ffb93a","#ffb93a",
-  "#ffd64d","#ffd64d","#ffd64d","#ffd64d","#ffd64d","#f4e16f","#f4e16f","#f4e16f","#f4e16f","#f4e16f",
-  "#d7e57e","#d7e57e","#d7e57e","#d7e57e","#d7e57e","#b7dd85","#b7dd85","#b7dd85","#b7dd85","#b7dd85",
-  "#99d98b","#99d98b","#99d98b","#99d98b","#99d98b","#78d48e","#78d48e","#78d48e","#78d48e","#78d48e",
-  "#53ae62","#53ae62","#53ae62","#53ae62","#53ae62"
+  "#e56a31","#e56a31","#e56a31","#e56a31","#e56a31","#e9752d","#e9752d","#e9752d","#e9752d","#e9752d",
+  "#ed802a","#ed802a","#ed802a","#ed802a","#ed802a","#f08b26","#f08b26","#f08b26","#f08b26","#f08b26",
+  "#f49623","#f49623","#f49623","#f49623","#f49623","#f8a11f","#f8a11f","#f8a11f","#f8a11f","#f8a11f",
+  "#f1a721","#f1a721","#f1a721","#f1a721","#f1a721","#dfa828","#dfa828","#dfa828","#dfa828","#dfa828",
+  "#cea82f","#cea82f","#cea82f","#cea82f","#cea82f","#bca937","#bca937","#bca937","#bca937","#bca937",
+  "#aaaa3e","#aaaa3e","#aaaa3e","#aaaa3e","#aaaa3e","#99ab45","#99ab45","#99ab45","#99ab45","#99ab45",
+  "#87ab4c","#87ab4c","#87ab4c","#87ab4c","#87ab4c","#76ac53","#76ac53","#76ac53","#76ac53","#76ac53",
+  "#64ad5a","#64ad5a","#64ad5a","#64ad5a","#64ad5a","#53ae62","#53ae62","#53ae62","#53ae62","#53ae62",
+  "#53ae62",
 ];
+
 
 /**
  * HOTOSM_COLORS: named palette used in the UI
