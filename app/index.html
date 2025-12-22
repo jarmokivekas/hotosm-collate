@@ -8,13 +8,12 @@
   
   <title>HOTOSM Collate</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow+Condensed:400,500,600,700%7CArchivo:400,500,600,700%7Csans-serif" media="all">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
   <link rel="stylesheet" type="text/css" href="./style.css" />
-  
   
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
@@ -22,10 +21,31 @@
   <link rel="icon" href="favicon.png">
   <script src="components/site-banner.js" defer></script>
 </head>
-
 <body>
-  <site-banner base="../"></site-banner>
+  <div id="toolbar">
+    <div class="toolbar-group">
+      <img src="./icons/hot-logo-icon.svg" />
+      <h1 class="hot-sitename">Collate</h1>
+    </div>
+    <div class="toolbar-spacer"></div>
+    <div class="toolbar-spacer"></div>
+    <div class="toolbar-spacer"></div>
+    <div class="toolbar-group">
+      <button id="left-panel-close" class="bg-white icon-button" title="Close Left Sidebar"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#2c3038"><path d="M660-320v-320L500-480l160 160ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm120-80v-560H200v560h120Zm80 0h360v-560H400v560Zm-80 0H200h120Z"/></svg></button>
+      <div class="toolbar-divider"></div>
+      <button id="show-both"  class="bg-white icon-button" title="Split View"><svg height="24px" viewBox="0 -960 960 960" width="24px" fill="#2c3038" xmlns="http://www.w3.org/2000/svg"><path d="m 200,-120 c -22,0 -40.83333,-7.83333 -56.5,-23.5 C 127.83333,-159.16667 120,-178 120,-200 v -560 c 0,-22 7.83333,-40.83333 23.5,-56.5 15.66667,-15.66667 34.5,-23.5 56.5,-23.5 h 560 c 22,0 40.83333,7.83333 56.5,23.5 15.66667,15.66667 23.5,34.5 23.5,56.5 v 560 c 0,22 -7.83333,40.83333 -23.5,56.5 -15.66667,15.66667 -34.5,23.5 -56.5,23.5 z m 241.69014,-80 V -760 H 200 v 560 z m 80,0 H 760 V -760 H 521.69014 Z m -80,0 H 200 Z"/></svg></button>
+      <button id="show-table" class="bg-white icon-button" title="Table View"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#2c3038"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-507h560v-133H200v133Zm0 214h560v-134H200v134Zm0 213h560v-133H200v133Zm40-454v-80h80v80h-80Zm0 214v-80h80v80h-80Zm0 214v-80h80v80h-80Z"/></svg></button>
+      <button id="show-map"   class="bg-white icon-button" title="Map View"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#2c3038"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm280-40q97-82 144.5-152.5T672-523q0-91-58-144t-134-53q-76 0-134 53t-58 144q0 60 47.5 130.5T480-240Zm0-230q-21 0-35.5-14.5T430-520q0-21 14.5-35.5T480-570q21 0 35.5 14.5T530-520q0 21-14.5 35.5T480-470ZM200-200v-560 560Z"/></svg></button>
+      <div class="toolbar-divider"></div>
+    </div>
+    <div class="toolbar-group" style="margin-left: auto;">
+      <a href="help.html"  target="#"><button id="open-help"   class="bg-white icon-button" title="Help"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#2c3038"><path d="M478-240q21 0 35.5-14.5T528-290q0-21-14.5-35.5T478-340q-21 0-35.5 14.5T428-290q0 21 14.5 35.5T478-240Zm-36-154h74q0-33 7.5-52t42.5-52q26-26 41-49.5t15-56.5q0-56-41-86t-97-30q-57 0-92.5 30T342-618l66 26q5-18 22.5-39t53.5-21q32 0 48 17.5t16 38.5q0 20-12 37.5T506-526q-44 39-54 59t-10 73Zm38 314q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg></button></a>
+      <a href="about.html" target="#"><button id="open-about"  class="bg-white icon-button" title="About"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#2c3038"><path d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg></button></a>
+      <a href="https://github.com/jarmokivekas/hotosm-collate/" target="#"><button id="open-github" class="bg-white icon-button" title="Github Repository"><svg viewBox="0 0 98 96" width="98" height="96" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z" fill="#24292f"/></svg></button></a>
+    </div>
+  </div>
   <div id="app-layout" class="mode-both">
+    
     <div id="filter-card">
       <form action="#">
         
@@ -104,14 +124,8 @@
         
       </form>
 
-      <hr>
-      <br>
-      <br>
-      <button id="show-table" class="bg-red">Table View</button><br><br>
-      <button id="show-map"   class="bg-red">Map View</button><br><br>
-      <button id="show-both"  class="bg-red">Split View</button><br><br>
 
-
+ 
 
     </div>
     
@@ -123,8 +137,11 @@
           <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Author</th>
             <th>Mapped [%]</th>
             <th>Validated [%]</th>
+            <th>Contributors</th>
+            <th>Active Mappers</th>
             <th>Priority</th>
             <th>Difficulty</th>
             <th>status</th>
@@ -144,9 +161,6 @@
     
   </div>
 
-  
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
   <script type="module" src="app.js"></script>
   
 </body>
