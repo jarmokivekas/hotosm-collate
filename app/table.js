@@ -46,7 +46,7 @@ export function addTableRows(searchResults, page) {
     const tr = tableBody.insertRow();
     for (const column of columns) {
       const td = tr.insertCell();
-      const fieldValue = result[column];
+      var fieldValue = result[column];
 
       // apply modifications and color maps to datafields
       switch (column) {
