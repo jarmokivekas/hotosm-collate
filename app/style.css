@@ -1,47 +1,65 @@
 
+:root {
+    --hot-red: #D73F3F;
+    --hot-red-dark: #b91c1c;
+    --hot-gray-pale: #ecebed;
+    --hot-blue-dark: #2c3038;
+
+}
 
 html, body {
     padding: 0px;
     margin: 0px;
     font-family:   "Archivo","Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    height: 100%;
-    overflow: hidden;
+    /* height: 100%; */
+    /* overflow: hidden; */
+    color: var(--hot-blue-dark);
 }
 
 
-.barlow-condensed {
+.barlow-condensed, .hot-sitename{
     font-family: "Barlow Condensed",sans-serif;
 }
 
 h1{
-    margin-top: 2rem;
     font-size: 1.5rem;
     font-weight: 600;
     display: inline;
-    margin-right: 2rem;
 }
-
-
-.red {
-    color: #d73f3f;
-}
-
-.wireframe {
-    border: 1px solid #ecebed;
-}
-
 
 #banner{
+    display: grid;
+    grid-template-columns: auto 1fr auto;  /* Logo takes its natural width, links take remaining */
+    align-items: center;              /* Vertically center */
     font-family: "Barlow Condensed",sans-serif;
-    padding: 1.5rem;
-    border: 1px solid #ecebed;
+    border-bottom: 1px solid var(--hot-gray-pale);
+}
+#banner span {
+    justify-content: center;
+    display: flex;
+}
+#banner img {
+    height: 32px;
+    padding: 1rem;
+}
+ 
+nav {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
 }
 
-#banner a {
+nav > a {
     padding-left: 2rem;
     color: inherit;
     text-decoration: none;
+    font-size: 1.25rem;
 }
+
+
+
+
+
 
 #app-layout {
     height: calc(100vh - 80px);
@@ -75,25 +93,80 @@ display: none;
 display: none;
 }
 
+div#toolbar {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    border-bottom: 1px solid var(--hot-gray-pale);
+    padding: 8px 16px;
+}
+
+div.toolbar-divider {
+    background-color: var(--hot-gray-pale);
+    height: 24px;
+    width: 1px;
+    align-self: center;
+    margin: 0px 8px;
+}
+div.toolbar-spacer {
+    width: 40px;
+}
+
+div.toolbar-group {
+  display: flex;
+  align-items: center;
+}
+
+button.icon-button {
+  display: flex;
+  align-items: center;            /* vertical centering */
+  justify-content: center;        /* horizontal centering */
+  width: 40px;                    
+  height: 40px;
+}
+
+
+button.icon-button svg {
+  width: 24px;    /* or whatever size you want */
+  height: 24px;
+  display: block; /* removes any tiny space below SVG */
+  pointer-events: none;
+}
+
+button.bg-white:hover {
+    background-color: var(--hot-gray-pale);
+}
+
+
 
 #filter-card {
-    border: 1px solid #ecebed;
+    border-right: 1px solid #ecebed;
     padding: 1.5rem;
     overflow-x: hidden;
     overflow-y: auto;
-
 }
 
 #dataframe-container {
-    border: 1px solid #ecebed;
+    border-right: 1px solid #ecebed;
     overflow-x: auto;
     overflow-y: auto;
     margin: 0rem;
 }
 
+
+
 #dataframe-map {
     overflow: hidden;
     height: 100%;
+    width: 100%;
+}
+
+tr:nth-child(even) {
+    background-color: #f0efef;
+}
+
+table {
+    border-collapse: collapse;
     width: 100%;
 }
 
@@ -106,7 +179,7 @@ td, th {
     padding: 0.5rem 0.2rem;
     text-align: left;
     font-size: 13px;
-
+    min-width: 50px;
 }
 
 
@@ -114,7 +187,8 @@ article {
     max-width: 900px;
     margin: 0 auto;
     padding: 1.5rem;
-    color: #4c4f56;
+    color: #101010;
+    font-family: "Archivo";
 
 }
 
@@ -123,6 +197,17 @@ article img  {
     margin-left: 10%;
     border: 1px solid #ecebed
 }
+
+article a {
+    color: var(--hot-red);
+}
+article a:visited {
+    color: var(--hot-red-dark);
+}
+article li::marker {
+    color: var(--hot-red);
+}
+
 
 p, li{
     line-height: 1.35;
@@ -134,7 +219,7 @@ p, li{
 
 
 #footer {
-    background-color: #ecebed;
+    background-color: var(--hot-gray-pale);
     padding: auto 5rem;
     clear: both;
     color: #888;
@@ -143,26 +228,60 @@ p, li{
 }
 
 hr {
-    border: 1px solid #ecebed;
+    border: 1px solid var(--hot-gray-pale);
 }
 
 label {
     margin-left: 5px;
 }
 
+#filter-card > button,
+#filter-card > input,
+#filter-card > select {
+    width: 90%;
+    
+}
+
 input, select {
     width: 90%;
     padding: 8px;
     line-height: 1.15;
-    border: 1px solid #ecebed;
+    border: 1px solid var(--hot-gray-pale);
     background-color: white;
- 
+    box-sizing: content-box;
 }
 
-button {
-    width: 90%;
-    padding: 8px;
+button, input[type=submit] {
+    font-weight: 900;
     line-height: 1.15;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+button:hover.bg-red, input[type=submit]:hover.bg-red {
+    background-color: var(--hot-red-dark);
+}
+
+.bg-red{
+    background-color: var(--hot-red);
+    padding: 0.75rem 1.5rem;
+    border-radius: .125rem;
+    border: None;
+    color: white; 
+}
+
+.bg-white {
+    background-color: white;
+    color: #2c3038;
+    border-radius: .125rem;
+    border: none;
+}
+
+
+
+.blue-dark {
+    color: #2c3038;
+
 }
 
 .blue-grey, label {
@@ -175,20 +294,3 @@ button {
     color: #2c3038;
 }
 
-tr:nth-child(even) {
-    background-color: #f0efef;
-}
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-
-}
-
-.bg-red {
-    background-color:   #d73f3f;
-    padding: 0.75rem 1.5rem;
-    border-radius: .125rem;
-    border: None;
-    color: #fff;
-}

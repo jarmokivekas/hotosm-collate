@@ -26,8 +26,11 @@ export function addTableRows(searchResults, page) {
   const columns = [
     "projectId",
     "name",
+    "author",
     "percentMapped",
     "percentValidated",
+    "totalContributors",
+    "activeMappers",
     "priority",
     "difficulty",
     "status",
