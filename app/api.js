@@ -63,3 +63,40 @@ export async function getApiDataV2(
   // Let errors bubble (caller can catch). Parse JSON as before.
   return response.json();
 }
+
+/**
+ * fetchProjectsDataPage
+ * Fetch paginated project search results from the API and render them in the table.
+ *
+ * Uses the module-level urlParams for building the API call parameters.
+ *
+ * This implementation fetches pages iteratively to reproduce original behavior
+ * (original used repeated calls if pagination.hasNext is true).
+ *
+ * Parameters:
+ * - startPage: integer page number to start from (1-based)
+ */
+export async function* fetchProjectsDataPage(startPage = 1, searchProjectsParams) {
+  let page = startPage;
+
+  while (true) {
+    searchProjectsParams.page = page;
+
+    try {
+      const singleProjectsDataPage = await getApiDataV2("projects", searchProjectsParams);
+      yield singleProjectsDataPage;
+
+      if (singleProjectsDataPage.pagination && singleProjectsDataPage.pagination.hasNext === true) {
+        page = page + 1;
+        // continue the loop to fetch the next page
+        continue;
+      }
+      // No more pages - exit loop
+      break;
+    } catch (err) {
+      console.error("fetchProjectsDataPage error", err);
+      break;
+    }
+  }
+}
+

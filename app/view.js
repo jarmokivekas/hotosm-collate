@@ -1,27 +1,43 @@
 
 
+
 var map = L.map('dataframe-map')
-    
 
 export function setViewMode(mode) {
+
     const layout = document.getElementById('app-layout');
 
     layout.classList.remove('mode-table', 'mode-map', 'mode-both');
     layout.classList.add(`mode-${mode}`);
+    
+    
     map.invalidateSize();
+}
+
+export function addProjectCentroids(centroids) {
+    L.geoJSON(centroids, {
+        onEachFeature: function (feature, layer) {
+            if (feature.properties) {
+                // Example: show a property as popup
+                const popupContent = `
+                    <strong>ID:</strong> #${feature.properties.projectId}
+                `;
+                layer.bindPopup(popupContent).openPopup();
+            }
+        }
+    }).addTo(map);
+    return;
 }
 
 export function initializeLeaflet() {
     
-    map.setView([51.505, -0.09], 13);
+    map.setView([30.0, 20], 3);
     
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+      maxZoom: 20,
+      attribution: '&copy; OpenStreetMap contributors. Tiles courtesy of <a href="https://hot.openstreetmap.org/">Humanitarian OpenStreetMap Team</a>'
     }).addTo(map);
-    
-    L.marker([51.5, -0.09]).addTo(map)
-    .bindPopup('A pretty CSS popup.<br> Easily customizable.')
-    .openPopup();
+
 }
 
 
