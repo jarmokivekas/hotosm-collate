@@ -6,13 +6,19 @@ class SiteBanner extends HTMLElement {
 
         this.innerHTML = `
 
-
         <div id="banner">
-            <h1>Activation Overview</h1>
-
-            <a href="${base}app/">COLLATE PROJECTS</a>
-            <a href="${base}app/help.html">HELP</a>
-            <a href="${base}app/about.html">ABOUT</a>
+            <span>
+                <img src="${base}app/icons/hot-logo-icon.svg" />
+                <h1 class="hot-sitename">Collate</h1>
+            </span>
+            <nav>
+                <a href="${base}app/">COLLATE PROJECTS</a>
+                <a href="${base}app/help.html">HELP</a>
+                <a href="${base}app/about.html">ABOUT</a>
+            </nav>
+            <span>
+                <a target="#" href=https://github.com/jarmokivekas/hotosm-collate/><img src="${base}app/icons/github-mark.svg" /></a>
+            </span>
         </div>
         `;
     }
