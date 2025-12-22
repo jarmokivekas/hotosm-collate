@@ -8,7 +8,6 @@
 
   <title>HOTOSM Collate</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow+Condensed:400,500,600,700%7CArchivo:400,500,600,700%7Csans-serif" media="all">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
   <link rel="stylesheet" type="text/css" href="./app/style.css" />
 
 
@@ -16,27 +15,21 @@
   <meta name="description" content="" />
 
   <link rel="icon" href="favicon.png">
+  <script src="./app/components/site-banner.js" defer></script>
 
 </head>
 
 <body>
 
-  <div id="topbar" class="wireframe red barlow-condensed">Mapping our world together</div>
-  <div id="banner">
-    <h1>Activation Overview</h1>
-    <a href="./app/">COLLATE PROJECTS</a>
-    <a href="./app/help.html">HELP</a>
-    <a href="./app/about.html">ABOUT</a>
-  </div>
+  <site-banner base="./"></site-banner>
+
   <div id="docs-page-container">
       <article>
-      <p><br /></p>
-<h1 id="collate-hotosm-tasking-manager-projects">Collate HOTOSM Tasking manager projects</h1>
+      <h1 id="collate-hotosm-tasking-manager-projects">Collate HOTOSM Tasking manager projects</h1>
 <p>Welcome to the Collate tool for HOT Tasking Manager.</p>
-<p>The purpose of this tool is to help project managers to get a better sense of what's going on in the Tasking Manager projects in their Activations. </p>
-<p>Click the button below to move to the application itself.</p>
+<p>The purpose of this tool is to help project managers to get a better sense of what's going on in the Tasking Manager projects in their Activations.  Click the button below to move to the application itself.</p>
 <p><br /></p>
-<form action="./app">
+<form action="app">
 <input type="submit" value="Open the Application" class="bg-red" />
 </form>
 <p><br /></p>
@@ -47,9 +40,6 @@
     Developed & Maintained by Jarmo Kivekäs | @jarmokivekas 
 
   </div>
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
-  <script src="app.js"></script>
   
 </body>
 

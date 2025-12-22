@@ -2,6 +2,7 @@
 title: About | HOTOSM Collate 
 author: Jarmo Kivekäs
 layout: documentation
+base: "../"
 ---
 
 

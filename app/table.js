@@ -1,6 +1,6 @@
 // app/table.js
 // DOM table creation and data-to-DOM mapping.
-// Exports tableCreate(searchResults, page)
+// Exports addTableRows(searchResults, page)
 
 /**
  * Responsibilities:
@@ -14,14 +14,14 @@ import { HOTOSM_COLORMAP, HOTOSM_TM_INSTANCE_URL } from "./constants.js";
 import { formatDatetime } from "./utils.js";
 
 /**
- * tableCreate
+ * addTableRows
  * Create rows in the #dataframe-body element for each result in searchResults.
  *
  * Parameters:
  * - searchResults: array of project objects (from TM API)
  * - page: integer page number (kept for compatibility with prior signature)
  */
-export function tableCreate(searchResults, page) {
+export function addTableRows(searchResults, page) {
   // The original set of columns that are rendered in the table.
   const columns = [
     "projectId",
@@ -38,7 +38,7 @@ export function tableCreate(searchResults, page) {
 
   const tableBody = document.getElementById("dataframe-body");
   if (!tableBody) {
-    console.warn("tableCreate: #dataframe-body not found in DOM");
+    console.warn("addTableRows: #dataframe-body not found in DOM");
     return;
   }
 

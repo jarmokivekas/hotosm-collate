@@ -8,13 +8,8 @@
 // functions can read parameters easily.
 
 import { getApiDataV2 } from "./api.js";
-import { tableCreate } from "./table.js";
+import { addTableRows } from "./table.js";
 
-/**
- * Module-level URLSearchParams object used to read query parameters.
- * Assigned in updateSearchParameters() during main() initialization.
- */
-let urlParams = new URLSearchParams(window.location.search);
 
 /**
  * updateSearchParameters
@@ -24,7 +19,7 @@ let urlParams = new URLSearchParams(window.location.search);
  * Returns: the URLSearchParams object.
  */
 export function updateSearchParameters() {
-  urlParams = new URLSearchParams(window.location.search);
+  let urlParams = new URLSearchParams(window.location.search);
 
   const formInputs = [
     "textSearch",
@@ -47,11 +42,33 @@ export function updateSearchParameters() {
   return urlParams;
 }
 
+
+export function getSearchProjectsParams() {
+
+  const urlParams = new URLSearchParams(window.location.search);
+
+  const searchProjectsParams = {
+    textSearch: urlParams.get("textSearch"),
+    campaign: urlParams.get("campaign"),
+    country: urlParams.get("country"),
+    interest: urlParams.get("interest"),
+    organisationName: urlParams.get("organisationName"),
+    projectStatuses: urlParams.get("projectStatuses")
+      ? urlParams.get("projectStatuses")
+      : "ARCHIVED,PUBLISHED,DRAFT",
+    orderBy: urlParams.get("orderBy") ? urlParams.get("orderBy") : "id",
+    orderByType: urlParams.get("orderByType") ? urlParams.get("orderByType") : "ASC",
+  };
+
+  return searchProjectsParams;
+}
 /**
  * presetNullFilters
  * Ensure certain <select> elements have a default value even if not present in URL.
  */
 export function presetNullFilters() {
+
+  const urlParams = new URLSearchParams(window.location.search);
   const selectIds = ["projectStatuses", "orderBy", "orderByType"];
 
   for (const selectId of selectIds) {
@@ -109,78 +126,3 @@ export async function populateDatalist(datalistId, apiEndpoint) {
   }
 }
 
-/**
- * getSearchResults
- * Fetch paginated project search results from the API and render them in the table.
- *
- * Uses the module-level urlParams for building the API call parameters.
- *
- * This implementation fetches pages iteratively to reproduce original behavior
- * (original used repeated calls if pagination.hasNext is true).
- *
- * Parameters:
- * - startPage: integer page number to start from (1-based)
- */
-export async function getSearchResults(startPage = 1) {
-  let page = startPage;
-
-  while (true) {
-    const apiCallParams = {
-      textSearch: urlParams.get("textSearch"),
-      campaign: urlParams.get("campaign"),
-      country: urlParams.get("country"),
-      interest: urlParams.get("interest"),
-      organisationName: urlParams.get("organisationName"),
-      projectStatuses: urlParams.get("projectStatuses")
-        ? urlParams.get("projectStatuses")
-        : "ARCHIVED,PUBLISHED,DRAFT",
-      orderBy: urlParams.get("orderBy") ? urlParams.get("orderBy") : "id",
-      orderByType: urlParams.get("orderByType") ? urlParams.get("orderByType") : "ASC",
-      page: page,
-    };
-
-    try {
-      const singlePageData = await getApiDataV2("projects", apiCallParams);
-      console.log(singlePageData.results);
-
-      const searchResults = singlePageData.results || [];
-      tableCreate(searchResults, page);
-
-      if (singlePageData.pagination && singlePageData.pagination.hasNext === true) {
-        page = page + 1;
-        // continue the loop to fetch the next page
-        console.log("found one more page, fetching page", page);
-        continue;
-      }
-      // No more pages - exit loop
-      break;
-    } catch (err) {
-      console.error("getSearchResults error", err);
-      break;
-    }
-  }
-}
-
-/**
- * main
- * Orchestrate initial population of datalists and start the first search.
- * This mirrors the original main() function in behavior and order.
- */
-export async function main() {
-  // Parallelize datalist population to speed startup
-  await Promise.all([
-    populateDatalist("campaignList", "campaigns"),
-    populateDatalist("countryList", "countries"),
-    populateDatalist("organisationNameList", "organisations"),
-    populateDatalist("interestList", "interests"),
-  ]);
-
-  updateSearchParameters();
-  presetNullFilters();
-
-  // Start fetching search results from page 1
-  await getSearchResults(1);
-
-  // Retain the commented DataTable initialization placeholder
-  // let table = new DataTable('#dataframe-table');
-}
