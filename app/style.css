@@ -133,27 +133,77 @@ button.icon-button svg {
   pointer-events: none;
 }
 
+button.text-icon-button {
+  display: flex;
+  align-items: center;        /* vertically center icon + text */
+  justify-content: center;    /* horizontally center content inside button */
+  /* gap: 8px;                   space between icon and text */
+
+  height: 40px;               /* same height as your icon-only buttons */
+  padding: 0 16px;             /* horizontal padding for comfortable click area */
+  min-width: 40px;             /* prevents it from being narrower than icon buttons */
+
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;        /* prevent text from wrapping */
+}
+
+button.text-icon-button:hover {
+  background-color: var(--hot-gray-pale);
+}
+
+button.text-icon-button svg {
+  width: 20px;                /* slightly smaller than 24px to balance with text */
+  height: 20px;
+  flex-shrink: 0;             /* prevent SVG from shrinking if button gets tight */
+  pointer-events: none;
+}
+
+
+
 button.bg-white:hover {
     background-color: var(--hot-gray-pale);
+}
+
+button, input[type=submit] {
+    font-weight: 700;
+    line-height: 1.15;
+    box-sizing: border-box;
+    justify-content: center;
+    border-radius: .125rem;
+
 }
 
 
 
 #filter-card {
     border-right: 1px solid #ecebed;
-    padding: 1.5rem;
+    padding: 1rem;
     overflow-x: hidden;
     overflow-y: auto;
 }
+
+input, select {
+    width: 90%;
+    padding: 8px;
+    line-height: 1.15;
+    border: 1px solid var(--hot-gray-pale);
+    background-color: white;
+    box-sizing: content-box;
+}
+
 
 #dataframe-container {
     border-right: 1px solid #ecebed;
     overflow-x: auto;
     overflow-y: auto;
-    margin: 0rem;
+    padding: 1rem;
 }
 
-
+#dataframe-table {
+    padding: 1rem;
+}
 
 #dataframe-map {
     overflow: hidden;
@@ -168,11 +218,13 @@ tr:nth-child(even) {
 table {
     border-collapse: collapse;
     width: 100%;
+    border: 1px solid var(--hot-gray-pale);
 }
 
 th {
     white-space: normal;
     overflow-wrap: anywhere;
+    border-bottom: 1px solid var(--hot-gray-pale);
 }
 
 td, th {
@@ -198,10 +250,10 @@ article img  {
     border: 1px solid #ecebed
 }
 
-article a {
+a {
     color: var(--hot-red);
 }
-article a:visited {
+a:visited {
     color: var(--hot-red-dark);
 }
 article li::marker {
@@ -242,21 +294,7 @@ label {
     
 }
 
-input, select {
-    width: 90%;
-    padding: 8px;
-    line-height: 1.15;
-    border: 1px solid var(--hot-gray-pale);
-    background-color: white;
-    box-sizing: content-box;
-}
 
-button, input[type=submit] {
-    font-weight: 900;
-    line-height: 1.15;
-    box-sizing: border-box;
-    justify-content: center;
-}
 
 button:hover.bg-red, input[type=submit]:hover.bg-red {
     background-color: var(--hot-red-dark);
@@ -265,27 +303,18 @@ button:hover.bg-red, input[type=submit]:hover.bg-red {
 .bg-red{
     background-color: var(--hot-red);
     padding: 0.75rem 1.5rem;
-    border-radius: .125rem;
     border: None;
     color: white; 
 }
 
 .bg-white {
     background-color: white;
-    color: #2c3038;
-    border-radius: .125rem;
+    color: var(--hot-blue-dark);
     border: none;
 }
 
-
-
-.blue-dark {
-    color: #2c3038;
-
-}
-
-.blue-grey, label {
-    color: #68707f;
+label {
+    color: var(--hot-blue-dark);
     text-transform: uppercase;
     font-weight: 500;
 }
